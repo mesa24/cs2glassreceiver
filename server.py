@@ -12,9 +12,11 @@ pin_fan = 13
 GPIO.setup(pin_fan, GPIO.OUT)
 current_state = "isOn"
 
-mp3_path = "/home/pi/Desktop/cs2glassreceiver/funny.mp3"
+mp3_roundstart = "/home/pi/Desktop/cs2glassreceiver/roundstart.mp3"
+mp3_roundend = "/home/pi/Desktop/cs2glassreceiver/roundend.mp3"
 
-command = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
+commandstart = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
+commandend = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
 
 
 
@@ -26,7 +28,7 @@ def turn_on():
         time.sleep(0.2)
         GPIO.output(pin_fan, GPIO.LOW)
         current_state = "isOn"
-        subprocess.run(command)
+        subprocess.run(commandend)
 
         return 'Fan turned on'
     else:
@@ -40,6 +42,8 @@ def turn_off():
         time.sleep(0.2)
         GPIO.output(pin_fan, GPIO.LOW)
         current_state = "isOff"
+        subprocess.run(commandstart)
+
         return 'Fan turned off'
     else:
         return 'Fan is already off'
