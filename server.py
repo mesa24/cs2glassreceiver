@@ -1,6 +1,7 @@
 from flask import Flask
 import RPi.GPIO as GPIO
 import time
+import playsound
 
 app = Flask(__name__)
 
@@ -19,6 +20,8 @@ def turn_on():
         time.sleep(0.2)
         GPIO.output(pin_fan, GPIO.LOW)
         current_state = "isOn"
+        playsound.playsound('/home/pi/Desktop/cs2glassreceiver/sfx.mp3', True)
+
         return 'Fan turned on'
     else:
         return 'Fan is already on'
