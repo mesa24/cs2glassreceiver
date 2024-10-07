@@ -15,8 +15,8 @@ current_state = "isOn"
 mp3_roundstart = "/home/pi/Desktop/cs2glassreceiver/roundstart.mp3"
 mp3_roundend = "/home/pi/Desktop/cs2glassreceiver/roundend.mp3"
 
-commandstart = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
-commandend = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
+commandstart = ["vlc", mp3_roundstart, "--intf", "dummy", "--play-and-exit"]
+commandend = ["vlc", mp3_roundend, "--intf", "dummy", "--play-and-exit"]
 
 
 
