@@ -9,7 +9,7 @@ GPIO.setmode(GPIO.BOARD)
 pin_fan = 13
 
 GPIO.setup(pin_fan, GPIO.OUT)
-current_state = "isOff"
+current_state = "isOn"
 
 @app.route('/turn_on')
 def turn_on():
