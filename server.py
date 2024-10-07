@@ -1,7 +1,7 @@
 from flask import Flask
 import RPi.GPIO as GPIO
 import time
-import pygame
+import subprocess
 
 app = Flask(__name__)
 
@@ -12,9 +12,11 @@ pin_fan = 13
 GPIO.setup(pin_fan, GPIO.OUT)
 current_state = "isOn"
 
-pygame.mixer.init()
-pygame.mixer.music.set_volume(1)
-pygame.mixer.music.load("/home/pi/Desktop/cs2glassreceiver/sfx.mp3")
+mp3_path = "/home/pi/Desktop/cs2glassreceiver/sfx.mp3"
+
+command = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
+
+
 
 @app.route('/turn_on')
 def turn_on():
@@ -24,7 +26,7 @@ def turn_on():
         time.sleep(0.2)
         GPIO.output(pin_fan, GPIO.LOW)
         current_state = "isOn"
-        pygame.mixer.music.play()
+        subprocess.run(command)
 
         return 'Fan turned on'
     else:
