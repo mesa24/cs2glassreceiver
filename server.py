@@ -12,7 +12,7 @@ pin_fan = 13
 GPIO.setup(pin_fan, GPIO.OUT)
 current_state = "isOn"
 
-mp3_path = "/home/pi/Desktop/cs2glassreceiver/meow.mp3"
+mp3_path = "/home/pi/Desktop/cs2glassreceiver/funny.mp3"
 
 command = ["vlc", mp3_path, "--intf", "dummy", "--play-and-exit"]
 
