@@ -35,13 +35,6 @@ def turn_off():
     else:
         return 'Fan is already off'
 
-@app.route('/switch')
-def switch():
-    GPIO.output(pin_fan, GPIO.HIGH)
-    time.sleep(0.2)
-    GPIO.output(pin_fan, GPIO.LOW)
-    return 'switching'
-
 if __name__ == '__main__':
     try:
         app.run(host='0.0.0.0', port=5000)
