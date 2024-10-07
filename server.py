@@ -28,7 +28,7 @@ def turn_on():
         time.sleep(0.2)
         GPIO.output(pin_fan, GPIO.LOW)
         current_state = "isOn"
-        subprocess.run(commandend)
+        subprocess.run(commandstart)
 
         return 'Fan turned on'
     else:
@@ -42,7 +42,7 @@ def turn_off():
         time.sleep(0.2)
         GPIO.output(pin_fan, GPIO.LOW)
         current_state = "isOff"
-        subprocess.run(commandstart)
+        subprocess.run(commandend)
 
         return 'Fan turned off'
     else:
